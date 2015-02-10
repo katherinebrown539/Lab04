@@ -63,20 +63,27 @@ DoubleNode<T>* CircularList<T>::find(int index)
  
    if (index >= loc_pos)
    {
-                                    //distance without the bridge (next refs, positive)
-                                    //distance using the bridge (prev refs, negative)
+	   
+         dist_next = (index - loc_pos);                           //distance without the bridge (next refs, positive)
+         dist_prev = loc_pos - (sze - index);                //distance using the bridge (prev refs, negative)
    }
    else
    {
-                                    //distance without the bridge (prev refs, negative)
-                                    //distance using the bridge (next refs, positive)
+			dist_prev = -(loc_pos - index); 						//distance without the bridge (prev refs, negative)
+            dist_next = (size - loc_pos)+index;                    //distance using the bridge (next refs, positive)
    }
 
    //DO THIS which distance is smaller?
    //find the minimum distance using absolute value
    //set min_dist to the smaller value, keeping the sign
 
-
+   if(abs(dist_next) < abs(dist_prev))
+   {
+	   min_dist = dist_next;
+   }
+	else{
+		min_dist = dist_prev;
+	}
 
 
 
@@ -412,5 +419,7 @@ void CircularList<T>::draw(Cairo::RefPtr<Cairo::Context> cr, int width, int heig
 
 template < class T >
 void CircularList<T>::mouseClicked(int x, int y) {}
+
+
 
 #endif
