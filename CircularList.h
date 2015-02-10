@@ -174,7 +174,7 @@ void CircularList<T>::remove(int index)
 		after->setPrev(prev);
 
 		loc = after;
-		loc_pos = index;
+		index == sze? loc_pos = 1 : loc_pos = index;
 
 		delete curr;
 
