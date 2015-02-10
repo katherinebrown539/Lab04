@@ -2,7 +2,7 @@
 #define CIRCULARLIST_H
 
 #include "CircularListIterator.h"
-
+#include <cmath>
 #include "Drawable.h"
 #include "Line.h"
 #include "Circle.h"
@@ -151,19 +151,26 @@ void CircularList<T>::remove(int index)
       {
 
 
-
-
-
+		delete loc;
+		loc_pos = 0;
+		loc = NULL;
 
       }
       else
       {
          //use local variables
 
+		DoubleNode<T>* curr = find(index);
+		DoubleNode<T>* prev = curr->getPrev();
+		DoubleNode<T>* after = curr->getNext();
 
-
-
-
+		prev->setNext(after);
+		after->setPrev(prev);
+		
+		loc = after;
+		loc_pos = index;
+		
+		delete curr;
 
       }
       sze--;
