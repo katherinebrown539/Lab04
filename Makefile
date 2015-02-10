@@ -23,5 +23,5 @@ Project: 		$(FILES)
 CLGUIDriver.o:		CircularList.h CLGUIDriver.cpp
 					$(COMPILE) CLGUIDriver.cpp
 
-CLGUI.o:			CLGUI.h Text.h CircularList.h CLGUI.cpp
+CLGUI.o:			CLGUI.h  CircularList.h CLGUI.cpp
 					$(COMPILE) CLGUI.cpp
