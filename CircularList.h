@@ -1,3 +1,9 @@
+/*
+	Katherine (Katie) Brown, Joe Bivens, Laura Garrison
+	Lab 04
+	CSC 2110
+	https://github.com/kebrown46/lab04
+*/
 #if !defined CIRCULARLIST_H
 #define CIRCULARLIST_H
 
@@ -70,7 +76,7 @@ DoubleNode<T>* CircularList<T>::find(int index)
    else
    {
 			dist_prev = -(loc_pos - index); 						//distance without the bridge (prev refs, negative)
-            dist_next = (size - loc_pos)+index;                    //distance using the bridge (next refs, positive)
+            dist_next = (sze - loc_pos)+index;                    //distance using the bridge (next refs, positive)
    }
 
    //DO THIS which distance is smaller?
